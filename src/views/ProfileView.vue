@@ -17,7 +17,7 @@ function increment(): void {
 }
 </script>
 <template>
-    <h1 class="text-red-400">Count</h1>
+    <h1 class="text-red-400">This is profile</h1>
     <p>{{ count.phone }}</p>
     <button class="px-2 py-2 rounded-lg bg-slate-400" @click="increment()">click me</button>
 </template>

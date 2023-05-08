@@ -1,20 +1,21 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import ProfileView from '../views/ProfileView.vue'
-import LoginView from '../views/LoginView.vue'
 const CallbackPage = () => import('@/views/CallbackView.vue')
+import { authGuard } from '@auth0/auth0-vue'
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
+        // {
+        //     path: '/',
+        //     name: 'profile',
+        //     component: ProfileView
+        // },
         {
             path: '/profile',
             name: 'profile',
+            beforeEnter: authGuard,
             component: ProfileView
-        },
-        {
-            path: '/login',
-            name: 'profile',
-            component: LoginView
         },
         {
             path: '/callback',
