@@ -1,7 +1,6 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import ProfileView from '../views/ProfileView.vue'
-const CallbackPage = () => import('@/views/CallbackView.vue')
-import { authGuard } from '@auth0/auth0-vue'
+import { createRouter, createWebHistory } from 'vue-router';
+import { CallbackView, ExerciseListView, ProfileView, WorkoutListView } from '../views';
+import { authGuard } from '@auth0/auth0-vue';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -15,13 +14,25 @@ const router = createRouter({
             path: '/profile',
             name: 'profile',
             beforeEnter: authGuard,
-            component: ProfileView
+            component: ProfileView,
+        },
+        {
+            path: '/exercises',
+            name: 'exercises',
+            beforeEnter: authGuard,
+            component: ExerciseListView,
+        },
+        {
+            path: '/workouts',
+            name: 'workouts',
+            beforeEnter: authGuard,
+            component: WorkoutListView,
         },
         {
             path: '/callback',
             name: 'callback',
-            component: CallbackPage
-        }
+            component: CallbackView,
+        },
 
         // {
         //     path: '/about',
@@ -31,7 +42,7 @@ const router = createRouter({
         //     // which is lazy-loaded when the route is visited.
         //     component: () => import('../views/AboutView.vue')
         // }
-    ]
-})
+    ],
+});
 
-export default router
+export default router;

@@ -1,4 +1,4 @@
-import LoginButton from './LoginButton.vue'
-import LogoutButton from './LogoutButton.vue'
+import LoginButton from './LoginButton.vue';
+import LogoutButton from './LogoutButton.vue';
 
-export { LoginButton, LogoutButton }
+export { LoginButton, LogoutButton };
