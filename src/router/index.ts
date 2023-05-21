@@ -11,11 +11,11 @@ import { authGuard } from '@auth0/auth0-vue';
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
-        // {
-        //     path: '/',
-        //     name: 'profile',
-        //     component: ProfileView
-        // },
+        {
+            path: '/',
+            name: 'default',
+            component: ProfileView,
+        },
         {
             path: '/profile',
             name: 'profile',

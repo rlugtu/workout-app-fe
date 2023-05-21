@@ -17,6 +17,9 @@ import {
     faHourglass,
     faUser,
     faPlusCircle,
+    faStore,
+    faShop,
+    faChartLine,
 } from '@fortawesome/free-solid-svg-icons';
 library.add(
     faUserSecret,
@@ -27,6 +30,8 @@ library.add(
     faHourglass,
     faUser,
     faPlusCircle,
+    faShop,
+    faChartLine,
 );
 
 const app = createApp(App);
@@ -40,6 +45,7 @@ app.use(
         clientId: import.meta.env.VITE_AUTH0_CLIENT_ID,
         authorizationParams: {
             redirect_uri: import.meta.env.VITE_AUTH0_CALLBACK_URL,
+            audience: import.meta.env.VITE_AUTH0_AUDIENCE,
         },
     }),
 );

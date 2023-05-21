@@ -8,13 +8,13 @@
                     to="/exercises"
                     class="h-full flex justify-center items-center text-center text-xl"
                 >
-                    <font-awesome-icon icon="fa-solid fa-dumbbell" />
+                    <font-awesome-icon icon="fa-solid fa-shop" />
                 </RouterLink>
                 <RouterLink
                     to="/workouts"
                     class="h-full flex justify-center items-center text-center border-x text-2xl"
                 >
-                    <font-awesome-icon icon="fa-solid fa-person-running" />
+                    <font-awesome-icon icon="fa-solid fa-chart-line" />
                 </RouterLink>
                 <RouterLink
                     to="/profile"
@@ -30,10 +30,11 @@
 
 <script setup lang="ts">
 import { LoginButton } from './buttons';
-import { useAuth0 } from '@auth0/auth0-vue';
+import { useAuthStore } from '@/stores';
 
 /**
  * Used to conditionally render the proper navbar based on authentication.
  */
-const { isAuthenticated } = useAuth0();
+const auth = useAuthStore();
+const isAuthenticated = auth.isLoggedIn;
 </script>

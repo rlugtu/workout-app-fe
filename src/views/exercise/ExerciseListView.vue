@@ -16,6 +16,8 @@
             class="fixed bottom-[80px] right-[10px]"
         ></AddButton>
 
+        <button @click="test">test</button>
+
         <Overlay v-if="isCreatingExercise">
             <button @click="toggleCreateExerciseModal">LMAOI</button></Overlay
         >
@@ -26,7 +28,10 @@
 import { AddButton, ExerciseListButton, Overlay, TopBar } from '@/components';
 import { exerciseListStub } from '@/stubs';
 import type { Exercise } from '@/types';
+import { getUserInfo } from '@/services';
 import { onMounted, ref } from 'vue';
+import { useAuth0 } from '@auth0/auth0-vue';
+const { getAccessTokenSilently } = useAuth0();
 
 /**
  * The list of exercises used by the template to render buttons that
@@ -46,9 +51,12 @@ const isCreatingExercise = ref<boolean>(false);
  */
 function toggleCreateExerciseModal(): void {
     isCreatingExercise.value = !isCreatingExercise.value;
-    console.log(isCreatingExercise.value);
 }
 
+async function test(): Promise<void> {
+    const accessToken = await getAccessTokenSilently();
+    await getUserInfo(accessToken);
+}
 onMounted(() => {
     // console.log('hey', exerciseList);
 });
