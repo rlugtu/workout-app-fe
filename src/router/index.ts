@@ -1,5 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import { CallbackView, ExerciseListView, ProfileView, WorkoutListView } from '../views';
+import {
+    AuthorizingView,
+    ExerciseListView,
+    ExerciseView,
+    ProfileView,
+    WorkoutListView,
+} from '@/views';
 import { authGuard } from '@auth0/auth0-vue';
 
 const router = createRouter({
@@ -23,6 +29,12 @@ const router = createRouter({
             component: ExerciseListView,
         },
         {
+            path: '/exercises/:exerciseId',
+            name: 'exercise',
+            beforeEnter: authGuard,
+            component: ExerciseView,
+        },
+        {
             path: '/workouts',
             name: 'workouts',
             beforeEnter: authGuard,
@@ -31,7 +43,7 @@ const router = createRouter({
         {
             path: '/callback',
             name: 'callback',
-            component: CallbackView,
+            component: AuthorizingView,
         },
 
         // {

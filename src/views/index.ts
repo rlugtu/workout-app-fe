@@ -1,6 +1,4 @@
-import ExerciseListView from './ExerciseListView.vue';
-import CallbackView from './CallbackView.vue';
-import ProfileView from './ProfileView.vue';
-import WorkoutListView from './WorkoutListView.vue';
-
-export { ExerciseListView, CallbackView, ProfileView, WorkoutListView };
+export { default as AuthorizingView } from './AuthorizingView.vue';
+export { default as ProfileView } from './ProfileView.vue';
+export * from './exercise';
+export * from './workout';

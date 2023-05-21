@@ -1,22 +1,6 @@
-<template>
-    <h1 class="text-green-500 text-3xl font-bold">Exercises</h1>
-    <div class="mt-4 grid grid-cols-1 gap-4">
-        <template v-for="exercise in exerciseList" :key="exercise.id">
-            <ExerciseListButton :exercise="exercise"></ExerciseListButton>
-        </template>
-    </div>
-</template>
+import type { Exercise } from './types';
 
-<script setup lang="ts">
-import { ExerciseListButton } from '@/components';
-import type { Exercise } from '@/types';
-import { onMounted, ref } from 'vue';
-
-/**
- * The list of exercises used by the template to render buttons that
- * will link to a single exercise page.
- */
-const exerciseList = ref<Exercise[]>([
+export const exerciseListStub: Exercise[] = [
     {
         id: 'testId',
         name: 'Bench',
@@ -28,7 +12,7 @@ const exerciseList = ref<Exercise[]>([
         id: 'testId',
         name: 'Deadlift',
         note: 'Deadlift Notes',
-        type: 'duration',
+        type: 'weight',
         ownerId: 'ryan',
     },
     {
@@ -59,9 +43,4 @@ const exerciseList = ref<Exercise[]>([
         type: 'distance',
         ownerId: 'ryan',
     },
-]);
-
-onMounted(() => {
-    console.log('hey', exerciseList);
-});
-</script>
+];

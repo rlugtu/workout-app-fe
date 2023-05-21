@@ -1,11 +1,11 @@
 <template>
     <div
-        class="w-full flex justify-between items-center bg-slate-700 bg-opacity-40 px-2 py-4 rounded-lg cursor-pointer text-lg text-green-400"
+        class="w-full flex justify-between items-center bg-slate-700 bg-opacity-40 px-2 py-4 rounded-lg cursor-pointer text-lg text-green-400 hover:bg-slate-800"
     >
         <span>
             {{ exercise.name }}
         </span>
-        <font-awesome-icon :icon="icons[exercise.type]" />
+        <font-awesome-icon :icon="icons[exercise.type]" class="text-xl" />
     </div>
 </template>
 

@@ -16,6 +16,7 @@ import {
     faStopwatch,
     faHourglass,
     faUser,
+    faPlusCircle,
 } from '@fortawesome/free-solid-svg-icons';
 library.add(
     faUserSecret,
@@ -25,6 +26,7 @@ library.add(
     faStopwatch,
     faHourglass,
     faUser,
+    faPlusCircle,
 );
 
 const app = createApp(App);
