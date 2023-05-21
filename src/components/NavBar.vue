@@ -6,17 +6,22 @@ const { isAuthenticated } = useAuth0();
 </script>
 <template>
     <header
-        class="fixed bottom-0 h-[60px] bg-midGray w-full left-0 flex justify-center items-center rounded-t-xl"
+        class="fixed bottom-0 h-[60px] bg-midGray w-full left-0 flex justify-center items-center rounded-t-xl cursor-pointer"
     >
         <nav class="w-full h-full grid grid-flow-col justify-stretch items-center text-gray">
             <template v-if="isAuthenticated">
-                <RouterLink to="/exercises" class="text-center">Exercises</RouterLink>
+                <RouterLink to="/exercises" class="text-center text-xl">
+                    <font-awesome-icon icon="fa-solid fa-dumbbell" />
+                </RouterLink>
                 <RouterLink
                     to="/workouts"
-                    class="text-center border-x h-full flex justify-center items-center"
-                    >Workouts</RouterLink
+                    class="text-center border-x h-full flex justify-center items-center text-2xl"
                 >
-                <RouterLink to="/profile" class="text-center">Profile</RouterLink>
+                    <font-awesome-icon icon="fa-solid fa-person-running" />
+                </RouterLink>
+                <RouterLink to="/profile" class="text-center text-xl">
+                    <font-awesome-icon icon="fa-solid fa-user" />
+                </RouterLink>
             </template>
             <LoginButton v-if="!isAuthenticated"></LoginButton>
         </nav>
