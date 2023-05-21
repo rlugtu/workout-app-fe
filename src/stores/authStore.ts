@@ -1,6 +1,15 @@
 import { defineStore } from 'pinia';
-import { useAuth0 } from '@auth0/auth0-vue';
+import { createAuth0, useAuth0 } from '@auth0/auth0-vue';
 import type { Ref } from 'vue';
+import { auth0 } from '@/main';
+
+/**
+ * By default, auth0 does not allow to get access token outside of a
+ * vue component. This allows it to be :)
+ */
+export async function getAccessToken(options?: any) {
+    return auth0.getAccessTokenSilently(options);
+}
 
 interface IAuthStore {
     id: string;
