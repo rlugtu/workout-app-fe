@@ -29,3 +29,25 @@ export async function getUserInfo(): Promise<User | void> {
         /* empty */
     }
 }
+
+/**
+ * Saves the user info and user settings.
+ *
+ * @export
+ * @param {User} userInfo
+ * @return {*}  {Promise<void>}
+ */
+export async function saveUserInfo(userInfo: User): Promise<void> {
+    try {
+        const accessToken = await getAccessToken();
+        const res = await axios.post(`${apiUrl}/user-service`, userInfo, {
+            headers: {
+                'content-type': 'application/json',
+                Authorization: `Bearer ${accessToken}`,
+            },
+        });
+        return res.data;
+    } catch (error) {
+        //empty
+    }
+}

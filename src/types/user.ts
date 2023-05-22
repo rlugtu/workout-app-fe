@@ -1,7 +1,8 @@
 export interface User {
     displayName: string;
-    email: string;
-    height: number;
+    email?: string;
+    height?: number;
+    weight?: number;
     settings: UserSettings;
 }
 

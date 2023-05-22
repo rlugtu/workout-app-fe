@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { createAuth0, useAuth0 } from '@auth0/auth0-vue';
+import { useAuth0 } from '@auth0/auth0-vue';
 import type { Ref } from 'vue';
 import { auth0 } from '@/main';
 
@@ -11,6 +11,12 @@ export async function getAccessToken(options?: any) {
     return auth0.getAccessTokenSilently(options);
 }
 
+/**
+ * Allows the email to be obtained from the user auth0 object.
+ */
+export async function getUserEmail() {
+    return auth0.user.value.email;
+}
 interface IAuthStore {
     id: string;
     name: string;
@@ -27,6 +33,9 @@ export const useAuthStore = defineStore('AuthStore', {
         isLoggedIn: (state): Ref<boolean> => {
             const { isAuthenticated } = useAuth0();
             return isAuthenticated;
+        },
+        email: async (state): Promise<string | undefined> => {
+            return await getUserEmail();
         },
     },
     actions: {},
