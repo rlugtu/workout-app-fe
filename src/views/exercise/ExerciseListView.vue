@@ -17,13 +17,15 @@
         ></AddButton>
 
         <Overlay v-if="isCreatingExercise">
-            <button @click="toggleCreateExerciseModal">LMAOI</button></Overlay
-        >
+            <div class="flex flex-col">
+                <CreateExerciseForm @cancel="toggleCreateExerciseModal"></CreateExerciseForm>
+            </div>
+        </Overlay>
     </div>
 </template>
 
 <script setup lang="ts">
-import { AddButton, ExerciseListButton, Overlay, TopBar } from '@/components';
+import { AddButton, ExerciseListButton, CreateExerciseForm, Overlay, TopBar } from '@/components';
 import { exerciseListStub } from '@/stubs';
 import type { Exercise } from '@/types';
 import { onMounted, ref } from 'vue';

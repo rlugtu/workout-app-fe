@@ -22,7 +22,7 @@
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
-import { LogoutButton, EditProfileForm } from '@/components';
+import { LogoutButton, EditProfileForm, Overlay } from '@/components';
 import { getUserInfo, saveUserInfo } from '@/services';
 import type { DistanceMetric, User, WeightMetric } from '@/types';
 import { useAuthStore } from '@/stores';

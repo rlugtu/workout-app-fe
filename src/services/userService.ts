@@ -24,6 +24,7 @@ export async function getUserInfo(): Promise<User | void> {
                 Authorization: `Bearer ${accessToken}`,
             },
         });
+
         return res.data;
     } catch (error) {
         /* empty */
